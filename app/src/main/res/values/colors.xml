@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="transparent">#00000000</color>
+    <color name="blue">#03a9f4</color>
+    <color name="blue_press">#01567c</color>
+    <color name="disable_press">#858e99</color>
+    <color name="able_press_identify">#f98425</color>
+    <color name="gray">#858e99</color>
+    <color name="white">#ffffff</color>
+    <color name="text_color">#3f3f3f</color>
+
+
+    <color name="text_blue_color">#3170cf</color>
+
+    <color name="chat_startColor">#c3dee7</color>
+    <color name="chat_endColor">#efefe3</color>
+    <color name="chat_edittext_strokeColor">#cBcBcd</color>
+    <color name="chat_edittextColor">#fafafa</color>
+
+    <color name="color_adadad">#adadad</color>
+    <color name="color_646464">#646464</color>
+</resources>
