@@ -2,60 +2,9 @@
 根据百度地图的定位功能，模仿QQ和微信的位置分享功能做出的一个demo，其中包含定位，POI搜索，反地理位置编码等
 
 
+#BaiduMapActivity代码
+
 package com.panshi.api.baidu;
-
-import android.app.Activity;
-import android.app.ProgressDialog;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnCancelListener;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.os.Bundle;
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.ZoomControls;
-
-import com.baidu.location.BDLocation;
-import com.baidu.location.BDLocationListener;
-import com.baidu.location.LocationClient;
-import com.baidu.location.LocationClientOption;
-import com.baidu.mapapi.SDKInitializer;
-import com.baidu.mapapi.map.BaiduMap;
-import com.baidu.mapapi.map.BaiduMapOptions;
-import com.baidu.mapapi.map.BitmapDescriptorFactory;
-import com.baidu.mapapi.map.MapStatus;
-import com.baidu.mapapi.map.MapStatusUpdate;
-import com.baidu.mapapi.map.MapStatusUpdateFactory;
-import com.baidu.mapapi.map.MapView;
-import com.baidu.mapapi.map.MarkerOptions;
-import com.baidu.mapapi.map.MyLocationConfiguration;
-import com.baidu.mapapi.map.MyLocationConfiguration.LocationMode;
-import com.baidu.mapapi.map.OverlayOptions;
-import com.baidu.mapapi.model.LatLng;
-import com.baidu.mapapi.search.core.PoiInfo;
-import com.baidu.mapapi.search.core.SearchResult;
-import com.baidu.mapapi.search.geocode.GeoCodeResult;
-import com.baidu.mapapi.search.geocode.GeoCoder;
-import com.baidu.mapapi.search.geocode.OnGetGeoCoderResultListener;
-import com.baidu.mapapi.search.geocode.ReverseGeoCodeOption;
-import com.baidu.mapapi.search.geocode.ReverseGeoCodeResult;
-import com.baidu.mapapi.search.poi.OnGetPoiSearchResultListener;
-import com.baidu.mapapi.search.poi.PoiDetailResult;
-import com.baidu.mapapi.search.poi.PoiNearbySearchOption;
-import com.baidu.mapapi.search.poi.PoiResult;
-import com.baidu.mapapi.search.poi.PoiSearch;
-import com.baidu.mapapi.utils.CoordinateConverter;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Yangshoule on 2016/8/25.
@@ -514,6 +463,78 @@ public class BaiduMapActivity extends Activity {
     }
 
 }
+
+#UI布局
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="afterDescendants"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/TITLE"
+        layout="@layout/common_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <com.baidu.mapapi.map.MapView
+            android:id="@+id/bmap_View"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:clickable="true" />
+
+        <ImageView
+            android:id="@+id/bmap_local_myself"
+            android:layout_width="@dimen/dimen_43dp"
+            android:layout_height="@dimen/dimen_43dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/dimen_11dp"
+            android:layout_marginLeft="@dimen/dimen_13dp"
+            android:background="@drawable/icon_arrow_bg"
+            android:padding="@dimen/dimen_14dp" />
+
+        <ImageView
+            android:id="@+id/bmap_center_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:paddingBottom="50dp"
+            android:src="@drawable/icon_local" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_3dp"
+        android:background="@drawable/icon_bmap_bg" />
+
+    <ListView
+        android:id="@+id/bmap_listview"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dimen_250dp"
+        android:layout_below="@id/bmap_View"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/bmap_refresh"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dimen_250dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="正在刷新......"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="@dimen/font_size_large"
+        android:visibility="gone" />
+
+
+</LinearLayout>
 
 
 #关于我
