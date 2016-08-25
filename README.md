@@ -60,6 +60,7 @@ import java.util.List;
 /**
  * Created by Yangshoule on 2016/8/25.
  */
+
 public class BaiduMapActivity extends Activity {
 
     public final static String LATITUDE = "latitude";
